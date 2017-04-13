@@ -19,7 +19,6 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'', include('candidate.urls')),
     url(r'', include('ct_auth.urls')),
