@@ -55,7 +55,7 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['']
+    REQUIRED_FIELDS = ['username']
 
     class Meta:
         abstract = True

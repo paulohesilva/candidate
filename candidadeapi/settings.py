@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework_swagger',
+    'oauth2_provider',
     'rest_framework',
     'candidate',
     'ct_auth',

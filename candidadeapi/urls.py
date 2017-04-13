@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^candidate/', include('candidate.urls')),
+    url(r'', include('ct_auth.urls')),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT,}),
 ]
