@@ -12,7 +12,8 @@ class Candidate(User):
     about = models.TextField(max_length=10000, null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        self.is_active = True
-        self.set_password(self.password)
+        if not self.id:
+            self.is_active = True
+            self.set_password(self.password)
         super(Candidate, self).save(*args, **kwargs)
     
