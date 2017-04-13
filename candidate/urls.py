@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+
 from .views import *
 
+
 urlpatterns = [
-    url(r'^candidate/', CandidateAPIView.as_view()),
+    url(r'^candidate/$', CandidateAPIView.as_view()),
+    url(r'^candidate/(?P<pk>[0-9]+)$', Candidate_details.as_view()),
+    url(r'^candidate/(?P<pk>[0-9]+)/delete$', Candidate_delete.as_view()),
 ]
+

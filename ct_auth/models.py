@@ -1,14 +1,15 @@
 # DJANGO #
-from django.db import models
-from django.contrib.auth.models import UserManager, AbstractBaseUser, PermissionsMixin
-from django.utils.translation import ugettext_lazy as _
-from django.utils import timezone
-from django.core.mail import send_mail
+import hashlib
 import os
+import random
 import uuid
 
-import hashlib
-import random
+from django.contrib.auth.models import UserManager, AbstractBaseUser, PermissionsMixin
+from django.core.mail import send_mail
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
+
 
 class CustomUserManager(UserManager):
     def _create_user(self, username, email, password,
@@ -21,7 +22,7 @@ class CustomUserManager(UserManager):
         if not email:
             if username:
                 key = hashlib.sha1(str(random.random()).encode('utf-8')).hexdigest()[:5]
-                email = username.lower()+key+'@surf2dayapp.com'
+                email = username.lower() + key + '@surf2dayapp.com'
             else:
                 raise ValueError('The given email must be set')
         
@@ -34,7 +35,7 @@ class CustomUserManager(UserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username,email, password, **extra_fields):
+    def create_superuser(self, username, email, password, **extra_fields):
         return self._create_user(username, email, password, True, True,
                                  **extra_fields)
         
@@ -79,11 +80,11 @@ class User(AbstractUser):
         m = hashlib.md5()
         m.update(self.email.encode('utf-8'))
         extension = os.path.splitext(filename)[1]
-        return 'profile/' + '/'.join([m.hexdigest(), uuid.uuid1().__str__()+extension])
+        return 'profile/' + '/'.join([m.hexdigest(), uuid.uuid1().__str__() + extension])
 
     is_superuser = False
     # image_field = models.ImageField(upload_to=upload_image_profile,  blank=True, null=True, )
-    username = models.CharField(unique=True,null=True, blank=True, max_length=255)
+    username = models.CharField(unique=True, null=True, blank=True, max_length=255)
     confirm_username = models.BooleanField(default=False)
     is_social = models.BooleanField(default=False)
     phone = models.CharField(null=True, blank=True, max_length=50)
@@ -105,7 +106,7 @@ class User(AbstractUser):
 
             if this.image_field != self.path_picture:
                 this.image_field.delete(save=False)
-        except: pass # when new photo then we do nothing, normal case          
+        except: pass  # when new photo then we do nothing, normal case          
         super(User, self).save(*args, **kwargs)
 
 class RecoveryKey(models.Model):
