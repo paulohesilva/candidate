@@ -82,7 +82,7 @@ class User(AbstractUser):
         return 'profile/' + '/'.join([m.hexdigest(), uuid.uuid1().__str__()+extension])
 
     is_superuser = False
-    image_field = models.ImageField(upload_to=upload_image_profile,  blank=True, null=True, )
+    # image_field = models.ImageField(upload_to=upload_image_profile,  blank=True, null=True, )
     username = models.CharField(unique=True,null=True, blank=True, max_length=255)
     confirm_username = models.BooleanField(default=False)
     is_social = models.BooleanField(default=False)
