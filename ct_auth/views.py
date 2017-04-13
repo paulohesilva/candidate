@@ -1,15 +1,16 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.contrib.auth import login 
+from django.http import HttpResponse
+from django.shortcuts import render
 from social.apps.django_app.utils import psa 
+
 from .tools import get_access_token
- 
+
+
 # When we send a third party access token to that view
 # as a GET request with access_token parameter, 
 # python social ct_auth communicate with
 # the third party and request the user info to register or
 # sign in the user. Magic. Yeah.
-
 @psa('social:complete')
 def register_by_access_token(request, backend):
  

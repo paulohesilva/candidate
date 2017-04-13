@@ -1,10 +1,10 @@
+from django.http import JsonResponse
+from django.utils.timezone import now, timedelta
+from oauth2_provider.models import AccessToken, Application, RefreshToken
 from oauth2_provider.settings import oauth2_settings
 from oauthlib.common import generate_token
-from django.http import JsonResponse
-from oauth2_provider.models import AccessToken, Application, RefreshToken
-from django.utils.timezone import now, timedelta
- 
- 
+
+
 def get_token_json(access_token):
     """
     Takes an AccessToken instance as an argument
