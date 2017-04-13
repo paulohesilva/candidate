@@ -137,7 +137,7 @@ function initOAuth(opts) {
   realm = (o.realm||errors.push("missing realm"));
 
   if(errors.length > 0){
-    log("auth unable initialize oauth: " + errors);
+    log("ct_auth unable initialize oauth: " + errors);
     return;
   }
 
@@ -166,7 +166,7 @@ function onOAuthComplete(token) {
       if(b){
         // if all roles are satisfied
         var o = null;
-        $.each($('.auth #api_information_panel'), function(k, v) {
+        $.each($('.ct_auth #api_information_panel'), function(k, v) {
           var children = v;
           if(children && children.childNodes) {
             var requiredScopes = [];

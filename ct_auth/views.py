@@ -6,7 +6,7 @@ from .tools import get_access_token
  
 # When we send a third party access token to that view
 # as a GET request with access_token parameter, 
-# python social auth communicate with
+# python social ct_auth communicate with
 # the third party and request the user info to register or
 # sign in the user. Magic. Yeah.
 

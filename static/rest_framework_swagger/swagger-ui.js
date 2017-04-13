@@ -331,7 +331,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   
-  return "\n        <div class=\"auth\">\n        <span class=\"api-ic ic-error\"></span>";
+  return "\n        <div class=\"ct_auth\">\n        <span class=\"api-ic ic-error\"></span>";
   }
 
 function program5(depth0,data) {

@@ -1383,7 +1383,7 @@ ApiKeyAuthorization.prototype.apply = function(obj, authorizations) {
 };
 
 /**
- * Password Authorization is a basic auth implementation
+ * Password Authorization is a basic ct_auth implementation
  */
 var PasswordAuthorization = function(name, username, password) {
   this.name = name;
