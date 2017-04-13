@@ -1,7 +1,8 @@
 from django.db import models
+from ct_auth.models import User
 # Create your models here.
 
-class Candidate(models.Model):
+class Candidate(User):
     name = models.CharField(max_length=15, unique=True, null=True)
     cpf = models.CharField(max_length=15, unique=True, null=True)
     rg = models.IntegerField(null=True,blank=True)
